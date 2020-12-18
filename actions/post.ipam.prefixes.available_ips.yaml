@@ -1,6 +1,6 @@
 # This action was auto generated from the NetBox API Swagger Spec
-# NetBox API version: 2.4
-# Date: 2018-11-08 00:21:23.103081
+# NetBox API version: 2.8
+# Date: 2020-12-18 19:59:40.840634
 description: "Create the next available IP Address in a given Prefix."
 enabled: true
 entry_point: run.py
@@ -18,14 +18,38 @@ parameters:
     default: False
     immutable: true
     type: boolean
+  vrf:
+    required: False
+    type: "integer"
+    description: "Vrf"
+  tenant:
+    required: False
+    type: "integer"
+    description: "Tenant"
   status:
     required: False
     type: "integer"
     description: "Status"
+  role:
+    required: False
+    type: "integer"
+    description: "Role"
+  interface:
+    required: False
+    type: "integer"
+    description: "Interface"
   nat_inside:
     required: False
     type: "integer"
-    description: "Nat inside"
+    description: "Primary ip"
+  nat_outside:
+    required: False
+    type: "integer"
+    description: "Primary ip"
+  dns_name:
+    required: False
+    type: "string"
+    description: "DNS Name"
   description:
     required: False
     type: "string"
@@ -34,30 +58,10 @@ parameters:
     required: False
     type: "array"
     description: "Array of tag strings"
-  nat_outside:
-    required: False
-    type: "integer"
-    description: "Nat inside"
   custom_fields:
     required: False
     type: "object"
     description: "Custom fields"
-  role:
-    required: False
-    type: "integer"
-    description: "Role"
-  vrf:
-    required: False
-    type: "integer"
-    description: "Vrf"
-  interface:
-    required: False
-    type: "integer"
-    description: "Interface"
-  tenant:
-    required: False
-    type: "integer"
-    description: "Tenant"
   id:
     required: True
     type: "integer"

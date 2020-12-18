@@ -1,7 +1,7 @@
 # This action was auto generated from the NetBox API Swagger Spec
-# NetBox API version: 2.4
-# Date: 2018-11-08 00:21:23.169771
-description: "GET Graphs"
+# NetBox API version: 2.8
+# Date: 2020-12-18 19:59:40.832599
+description: "Call to super to allow for caching"
 enabled: true
 entry_point: run.py
 name: get.extras.graphs
@@ -18,11 +18,83 @@ parameters:
     default: True
     immutable: true
     type: boolean
+  id:
+    required: False
+    type: "string"
+    description: ""
   type:
     required: False
     type: "string"
     description: ""
   name:
+    required: False
+    type: "string"
+    description: ""
+  template_language:
+    required: False
+    type: "string"
+    description: ""
+  id__n:
+    required: False
+    type: "string"
+    description: ""
+  id__lte:
+    required: False
+    type: "string"
+    description: ""
+  id__lt:
+    required: False
+    type: "string"
+    description: ""
+  id__gte:
+    required: False
+    type: "string"
+    description: ""
+  id__gt:
+    required: False
+    type: "string"
+    description: ""
+  type__n:
+    required: False
+    type: "string"
+    description: ""
+  name__n:
+    required: False
+    type: "string"
+    description: ""
+  name__ic:
+    required: False
+    type: "string"
+    description: ""
+  name__nic:
+    required: False
+    type: "string"
+    description: ""
+  name__iew:
+    required: False
+    type: "string"
+    description: ""
+  name__niew:
+    required: False
+    type: "string"
+    description: ""
+  name__isw:
+    required: False
+    type: "string"
+    description: ""
+  name__nisw:
+    required: False
+    type: "string"
+    description: ""
+  name__ie:
+    required: False
+    type: "string"
+    description: ""
+  name__nie:
+    required: False
+    type: "string"
+    description: ""
+  template_language__n:
     required: False
     type: "string"
     description: ""

@@ -1,6 +1,6 @@
 # This action was auto generated from the NetBox API Swagger Spec
-# NetBox API version: 2.4
-# Date: 2018-11-08 00:21:23.071795
+# NetBox API version: 2.8
+# Date: 2020-12-18 19:59:40.801163
 description: "POST Interface Templates"
 enabled: true
 entry_point: run.py
@@ -18,14 +18,6 @@ parameters:
     default: True
     immutable: true
     type: boolean
-  mgmt_only:
-    required: False
-    type: "boolean"
-    description: "Management only"
-  form_factor:
-    required: False
-    type: "integer"
-    description: "Form factor"
   device_type:
     required: True
     type: "integer"
@@ -34,4 +26,12 @@ parameters:
     required: True
     type: "string"
     description: "Name"
+  type:
+    required: True
+    type: "string"
+    description: "Type"
+  mgmt_only:
+    required: False
+    type: "boolean"
+    description: "Management only"
 runner_type: python-script

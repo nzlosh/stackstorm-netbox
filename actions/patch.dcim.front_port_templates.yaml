@@ -1,13 +1,13 @@
 # This action was auto generated from the NetBox API Swagger Spec
-# NetBox API version: 2.4
-# Date: 2018-11-08 00:21:23.140483
-description: "PATCH Interface Connections"
+# NetBox API version: 2.8
+# Date: 2020-12-18 19:59:40.798883
+description: "PATCH Front Port Templates"
 enabled: true
 entry_point: run.py
-name: patch.dcim.interface_connections
+name: patch.dcim.front_port_templates
 parameters:
   endpoint_uri:
-    default: "/dcim/interface-connections/{{ id }}/"
+    default: "/dcim/front-port-templates/{{ id }}/"
     immutable: true
     type: string
   http_verb:
@@ -18,18 +18,26 @@ parameters:
     default: True
     immutable: true
     type: boolean
-  connection_status:
+  device_type:
     required: False
     type: "integer"
-    description: "Connection status"
-  interface_a:
+    description: "Device type"
+  name:
+    required: False
+    type: "string"
+    description: "Name"
+  type:
+    required: False
+    type: "string"
+    description: "Type"
+  rear_port:
     required: False
     type: "integer"
-    description: "Interface"
-  interface_b:
+    description: "Rear port"
+  rear_port_position:
     required: False
     type: "integer"
-    description: "Interface"
+    description: "Rear port position"
   id:
     required: True
     type: "integer"

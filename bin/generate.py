@@ -1,21 +1,40 @@
+#!/usr/bin/env python
+
 import argparse
 import datetime
 import jinja2
 import json
 import os
-import urllib2
+import urllib.request, urllib.error, urllib.parse
 
 
-def get_spec(host, https, port):
+def get_spec_on_disk(path):
+    spec = None
+    with open(path, "r") as f:
+        spec = f.readlines()
+    return json.loads("\n".join(spec))
+
+def get_spec(host, https, port, file_, save_spec=False):
+    if file_:
+        return get_spec_on_disk(host)
+    else:
+        return get_spec_via_http(host, https, port, save_spec)
+
+def get_spec_via_http(host, https, port, save_spec=False):
     protocol = 'https://' if https else 'http://'
     url = "{}{}:{}/api/swagger.json".format(protocol, host, port)
-    request = urllib2.Request(url)
+    request = urllib.request.Request(url)
     print("Getting API spec from NetBox instance...")
     try:
-        response = urllib2.urlopen(request)
-    except Exception:
-        print("Failed to get the API spec!")
-    return json.loads(response.read())
+        response = urllib.request.urlopen(request)
+    except Exception as e:
+        print("Failed to get the API spec! {}".format(str(e)))
+        exit(1)
+    spec = json.loads(response.read())
+    if save_spec:
+        with open("/tmp/netbox_swagger.json", "w") as f:
+            f.write(json.dumps(spec))
+    return spec
 
 
 def sanitize_parameters(parameters):
@@ -47,7 +66,7 @@ def parse_properties(properties, required, spec, ignore=None):
         ignore(list): optional list of elements to explicitly ignore
     """
     parameters = []
-    for name, data in properties.items():
+    for name, data in list(properties.items()):
         if data.get('readOnly', False):
             continue
 
@@ -89,11 +108,13 @@ def parse_properties(properties, required, spec, ignore=None):
 def run(spec):
     actions = {}
     deferred_detail_gets = []
-    for path, verbs in spec['paths'].items():
+    for path, verbs in list(spec['paths'].items()):
         path_parts = [x.replace("-", "_") for x in path.replace("/{id}", "").strip("/").split("/")]
-        for verb, verb_data in verbs.items():
+        for verb, verb_data in list(verbs.items()):
             if verb == 'parameters':
                 continue
+
+            print("Action: {} {}".format(verb, path_parts))
 
             action_name = "{}.{}".format(verb, ".".join(path_parts))
             if "{id}" in path:
@@ -121,7 +142,6 @@ def run(spec):
             #
             # Begin special endpoint processing
             #
-
             if verb == 'post' and action_name == 'post.ipam.prefixes.available_ips':
                 # the spec defines the schema ref as Refix when it should really be IPAddress with
                 # all parameters optional (since prefix and address are handled by the route)
@@ -216,7 +236,7 @@ def run(spec):
                 actions[action_name] = action
 
             else:
-                print("Unable to process endpoint {}, no defined logic".format(action_name))
+                print(("Unable to process endpoint {}, no defined logic".format(action_name)))
 
     # process defered detail get endpoints
     for detailed_get in deferred_detail_gets:
@@ -232,7 +252,7 @@ def run(spec):
                 'type': 'integer'
             })
         else:
-            print("Unable to find list action for deferred GET endpoint {}".format(detailed_get))
+            print(("Unable to find list action for deferred GET endpoint {}".format(detailed_get)))
 
     # delete all current ".yaml" action files
     running_dir_name = os.path.dirname(__file__)
@@ -245,7 +265,7 @@ def run(spec):
     # render the new actions and write them to file
     with open('action-template.jinja2') as f:
         template = jinja2.Template(f.read())
-    for name, action in actions.items():
+    for name, action in list(actions.items()):
         template_vars = {
             'generation_date': datetime.datetime.now(),
             'version': spec['info']['version'],
@@ -279,6 +299,11 @@ if __name__ == "__main__":
         action='store_true',
     )
     parser.add_argument(
+        '--file',
+        help='Read file from disk rather than downloading directly via HTTP/HTTPS',
+        action='store_true',
+    )
+    parser.add_argument(
         '--port',
         type=int,
         help='Port NetBox is run on',
@@ -286,7 +311,7 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
 
-    spec = get_spec(args.host, args.https, args.port)
+    spec = get_spec(args.host, args.https, args.port, args.file)
     total_actions = run(spec)
-    print("Wrote {} actions to file.".format(total_actions))
+    print(("Wrote {} actions to file.".format(total_actions)))
     print("Done!")

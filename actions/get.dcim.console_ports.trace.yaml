@@ -1,13 +1,13 @@
 # This action was auto generated from the NetBox API Swagger Spec
-# NetBox API version: 2.4
-# Date: 2018-11-08 00:21:23.071411
-description: "GET Render"
+# NetBox API version: 2.8
+# Date: 2020-12-18 19:59:40.787830
+description: "Trace a complete cable path and return each segment as a three-tuple of (termination, cable, termination)."
 enabled: true
 entry_point: run.py
-name: get.extras.topology_maps.render
+name: get.dcim.console_ports.trace
 parameters:
   endpoint_uri:
-    default: "/extras/topology-maps/{{ id }}/render/"
+    default: "/dcim/console-ports/{{ id }}/trace/"
     immutable: true
     type: string
   http_verb:

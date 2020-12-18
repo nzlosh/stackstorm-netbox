@@ -1,6 +1,6 @@
 # This action was auto generated from the NetBox API Swagger Spec
-# NetBox API version: 2.4
-# Date: 2018-11-08 00:21:23.086856
+# NetBox API version: 2.8
+# Date: 2020-12-18 19:59:40.837049
 description: "PATCH Aggregates"
 enabled: true
 entry_point: run.py
@@ -18,6 +18,18 @@ parameters:
     default: True
     immutable: true
     type: boolean
+  prefix:
+    required: False
+    type: "string"
+    description: "Prefix"
+  rir:
+    required: False
+    type: "integer"
+    description: "RIR"
+  date_added:
+    required: False
+    type: "string"
+    description: "Date added"
   description:
     required: False
     type: "string"
@@ -26,18 +38,6 @@ parameters:
     required: False
     type: "array"
     description: "Array of tag strings"
-  rir:
-    required: False
-    type: "integer"
-    description: "Rir"
-  prefix:
-    required: False
-    type: "string"
-    description: "Prefix"
-  date_added:
-    required: False
-    type: "string"
-    description: "Date added"
   custom_fields:
     required: False
     type: "object"

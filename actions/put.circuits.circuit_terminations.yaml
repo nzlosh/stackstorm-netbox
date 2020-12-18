@@ -1,6 +1,6 @@
 # This action was auto generated from the NetBox API Swagger Spec
-# NetBox API version: 2.4
-# Date: 2018-11-08 00:21:23.118239
+# NetBox API version: 2.8
+# Date: 2020-12-18 19:59:40.769525
 description: "PUT Circuit Terminations"
 enabled: true
 entry_point: run.py
@@ -18,38 +18,46 @@ parameters:
     default: True
     immutable: true
     type: boolean
-  pp_info:
-    required: False
-    type: "string"
-    description: "Patch panel/port(s)"
-  upstream_speed:
-    required: False
-    type: "integer"
-    description: "Upstream speed (Kbps)"
-  site:
-    required: True
-    type: "integer"
-    description: "Site"
-  term_side:
-    required: True
-    type: "string"
-    description: "Termination"
-  xconnect_id:
-    required: False
-    type: "integer"
-    description: "Cross-connect ID"
   circuit:
     required: True
     type: "integer"
     description: "Circuit"
+  term_side:
+    required: True
+    type: "string"
+    description: "Termination"
+  site:
+    required: True
+    type: "integer"
+    description: "Site"
   port_speed:
     required: True
     type: "integer"
     description: "Port speed (Kbps)"
-  interface:
+  upstream_speed:
     required: False
     type: "integer"
-    description: "Interface"
+    description: "Upstream speed (Kbps)"
+  xconnect_id:
+    required: False
+    type: "integer"
+    description: "Cross-connect ID"
+  pp_info:
+    required: False
+    type: "string"
+    description: "Patch panel/port(s)"
+  description:
+    required: False
+    type: "string"
+    description: "Description"
+  connection_status:
+    required: False
+    type: "boolean"
+    description: "Connection status"
+  cable:
+    required: False
+    type: "integer"
+    description: "Cable"
   id:
     required: True
     type: "integer"

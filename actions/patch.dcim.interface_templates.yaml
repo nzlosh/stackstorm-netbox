@@ -1,6 +1,6 @@
 # This action was auto generated from the NetBox API Swagger Spec
-# NetBox API version: 2.4
-# Date: 2018-11-08 00:21:23.165629
+# NetBox API version: 2.8
+# Date: 2020-12-18 19:59:40.801517
 description: "PATCH Interface Templates"
 enabled: true
 entry_point: run.py
@@ -18,14 +18,6 @@ parameters:
     default: True
     immutable: true
     type: boolean
-  mgmt_only:
-    required: False
-    type: "boolean"
-    description: "Management only"
-  form_factor:
-    required: False
-    type: "integer"
-    description: "Form factor"
   device_type:
     required: False
     type: "integer"
@@ -34,6 +26,14 @@ parameters:
     required: False
     type: "string"
     description: "Name"
+  type:
+    required: False
+    type: "string"
+    description: "Type"
+  mgmt_only:
+    required: False
+    type: "boolean"
+    description: "Management only"
   id:
     required: True
     type: "integer"

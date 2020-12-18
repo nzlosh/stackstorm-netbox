@@ -1,6 +1,6 @@
 # This action was auto generated from the NetBox API Swagger Spec
-# NetBox API version: 2.4
-# Date: 2018-11-08 00:21:23.091584
+# NetBox API version: 2.8
+# Date: 2020-12-18 19:59:40.774308
 description: "A convenience method for rendering graphs for a particular provider."
 enabled: true
 entry_point: run.py

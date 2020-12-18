@@ -1,13 +1,13 @@
 # This action was auto generated from the NetBox API Swagger Spec
-# NetBox API version: 2.4
-# Date: 2018-11-08 00:21:23.167791
-description: "GET  Choices"
+# NetBox API version: 2.8
+# Date: 2020-12-18 19:59:40.829824
+description: "GET  Custom Field Choices"
 enabled: true
 entry_point: run.py
-name: get.extras._choices
+name: get.extras._custom_field_choices
 parameters:
   endpoint_uri:
-    default: "/extras/_choices/"
+    default: "/extras/_custom_field_choices/"
     immutable: true
     type: string
   http_verb:

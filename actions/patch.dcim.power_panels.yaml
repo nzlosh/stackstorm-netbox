@@ -1,13 +1,13 @@
 # This action was auto generated from the NetBox API Swagger Spec
-# NetBox API version: 2.4
-# Date: 2018-11-08 00:21:23.157541
-description: "PATCH Topology Maps"
+# NetBox API version: 2.8
+# Date: 2020-12-18 19:59:40.813245
+description: "PATCH Power Panels"
 enabled: true
 entry_point: run.py
-name: patch.extras.topology_maps
+name: patch.dcim.power_panels
 parameters:
   endpoint_uri:
-    default: "/extras/topology-maps/{{ id }}/"
+    default: "/dcim/power-panels/{{ id }}/"
     immutable: true
     type: string
   http_verb:
@@ -18,22 +18,14 @@ parameters:
     default: True
     immutable: true
     type: boolean
-  description:
-    required: False
-    type: "string"
-    description: "Description"
   site:
     required: False
     type: "integer"
     description: "Site"
-  device_patterns:
+  rack_group:
     required: False
-    type: "string"
-    description: "Device patterns"
-  slug:
-    required: False
-    type: "string"
-    description: "Slug"
+    type: "integer"
+    description: "Rack group"
   name:
     required: False
     type: "string"

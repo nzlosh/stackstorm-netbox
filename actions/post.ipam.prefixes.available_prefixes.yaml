@@ -1,6 +1,6 @@
 # This action was auto generated from the NetBox API Swagger Spec
-# NetBox API version: 2.4
-# Date: 2018-11-08 00:21:23.074764
+# NetBox API version: 2.8
+# Date: 2020-12-18 19:59:40.840964
 description: "Create the next available Prefix in a given Prefix."
 enabled: true
 entry_point: run.py
@@ -18,34 +18,10 @@ parameters:
     default: False
     immutable: true
     type: boolean
-  status:
-    required: False
-    type: "integer"
-    description: "Status"
-  is_pool:
-    required: False
-    type: "boolean"
-    description: "Is a pool"
-  tags:
-    required: False
-    type: "array"
-    description: "Array of tag strings"
-  vlan:
-    required: False
-    type: "integer"
-    description: "Vlan"
   site:
     required: False
     type: "integer"
     description: "Site"
-  custom_fields:
-    required: False
-    type: "object"
-    description: "Custom fields"
-  role:
-    required: False
-    type: "integer"
-    description: "Role"
   vrf:
     required: False
     type: "integer"
@@ -54,10 +30,34 @@ parameters:
     required: False
     type: "integer"
     description: "Tenant"
+  vlan:
+    required: False
+    type: "integer"
+    description: "Untagged vlan"
+  status:
+    required: False
+    type: "integer"
+    description: "Status"
+  role:
+    required: False
+    type: "integer"
+    description: "Role"
+  is_pool:
+    required: False
+    type: "boolean"
+    description: "Is a pool"
   description:
     required: False
     type: "string"
     description: "Description"
+  tags:
+    required: False
+    type: "array"
+    description: "Array of tag strings"
+  custom_fields:
+    required: False
+    type: "object"
+    description: "Custom fields"
   id:
     required: True
     type: "integer"

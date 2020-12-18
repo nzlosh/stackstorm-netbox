@@ -1,6 +1,6 @@
 # This action was auto generated from the NetBox API Swagger Spec
-# NetBox API version: 2.4
-# Date: 2018-11-08 00:21:23.119681
+# NetBox API version: 2.8
+# Date: 2020-12-18 19:59:40.788304
 description: "POST Console Server Port Templates"
 enabled: true
 entry_point: run.py
@@ -26,4 +26,8 @@ parameters:
     required: True
     type: "string"
     description: "Name"
+  type:
+    required: False
+    type: "string"
+    description: "Type"
 runner_type: python-script

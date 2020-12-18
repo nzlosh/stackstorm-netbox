@@ -1,6 +1,6 @@
 # This action was auto generated from the NetBox API Swagger Spec
-# NetBox API version: 2.4
-# Date: 2018-11-08 00:21:23.153855
+# NetBox API version: 2.8
+# Date: 2020-12-18 19:59:40.834003
 description: "PATCH Image Attachments"
 enabled: true
 entry_point: run.py
@@ -18,26 +18,26 @@ parameters:
     default: True
     immutable: true
     type: boolean
-  name:
-    required: False
-    type: "string"
-    description: "Name"
-  image_width:
-    required: False
-    type: "integer"
-    description: "Image width"
-  object_id:
-    required: False
-    type: "integer"
-    description: "Object id"
-  image_height:
-    required: False
-    type: "integer"
-    description: "Image height"
   content_type:
     required: False
     type: "string"
     description: "Content type"
+  object_id:
+    required: False
+    type: "integer"
+    description: "Object id"
+  name:
+    required: False
+    type: "string"
+    description: "Name"
+  image_height:
+    required: False
+    type: "integer"
+    description: "Image height"
+  image_width:
+    required: False
+    type: "integer"
+    description: "Image width"
   id:
     required: True
     type: "integer"

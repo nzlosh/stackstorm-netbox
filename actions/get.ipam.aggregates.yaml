@@ -1,7 +1,7 @@
 # This action was auto generated from the NetBox API Swagger Spec
-# NetBox API version: 2.4
-# Date: 2018-11-08 00:21:23.078058
-description: "GET Aggregates"
+# NetBox API version: 2.8
+# Date: 2020-12-18 19:59:40.836238
+description: "Call to super to allow for caching"
 enabled: true
 entry_point: run.py
 name: get.ipam.aggregates
@@ -18,7 +18,7 @@ parameters:
     default: True
     immutable: true
     type: boolean
-  family:
+  id:
     required: False
     type: "string"
     description: ""
@@ -26,11 +26,39 @@ parameters:
     required: False
     type: "string"
     description: ""
-  id__in:
+  created:
     required: False
-    type: "array"
-    description: "Array of IDs"
+    type: "string"
+    description: ""
+  created__gte:
+    required: False
+    type: "string"
+    description: ""
+  created__lte:
+    required: False
+    type: "string"
+    description: ""
+  last_updated:
+    required: False
+    type: "string"
+    description: ""
+  last_updated__gte:
+    required: False
+    type: "string"
+    description: ""
+  last_updated__lte:
+    required: False
+    type: "string"
+    description: ""
   q:
+    required: False
+    type: "string"
+    description: ""
+  family:
+    required: False
+    type: "integer"
+    description: ""
+  prefix:
     required: False
     type: "string"
     description: ""
@@ -43,6 +71,58 @@ parameters:
     type: "string"
     description: ""
   tag:
+    required: False
+    type: "string"
+    description: ""
+  id__n:
+    required: False
+    type: "string"
+    description: ""
+  id__lte:
+    required: False
+    type: "string"
+    description: ""
+  id__lt:
+    required: False
+    type: "string"
+    description: ""
+  id__gte:
+    required: False
+    type: "string"
+    description: ""
+  id__gt:
+    required: False
+    type: "string"
+    description: ""
+  date_added__n:
+    required: False
+    type: "string"
+    description: ""
+  date_added__lte:
+    required: False
+    type: "string"
+    description: ""
+  date_added__lt:
+    required: False
+    type: "string"
+    description: ""
+  date_added__gte:
+    required: False
+    type: "string"
+    description: ""
+  date_added__gt:
+    required: False
+    type: "string"
+    description: ""
+  rir_id__n:
+    required: False
+    type: "string"
+    description: ""
+  rir__n:
+    required: False
+    type: "string"
+    description: ""
+  tag__n:
     required: False
     type: "string"
     description: ""

@@ -1,7 +1,7 @@
 # This action was auto generated from the NetBox API Swagger Spec
-# NetBox API version: 2.4
-# Date: 2018-11-08 00:21:23.107047
-description: "A convenience method for returning available child prefixes within a parent."
+# NetBox API version: 2.8
+# Date: 2020-12-18 19:59:40.840864
+description: "The advisory lock decorator uses a PostgreSQL advisory lock to prevent this API from beinginvoked in parallel, which results in a race condition where multiple insertions can occur."
 enabled: true
 entry_point: run.py
 name: get.ipam.prefixes.available_prefixes

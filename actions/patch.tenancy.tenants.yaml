@@ -1,6 +1,6 @@
 # This action was auto generated from the NetBox API Swagger Spec
-# NetBox API version: 2.4
-# Date: 2018-11-08 00:21:23.081544
+# NetBox API version: 2.8
+# Date: 2020-12-18 19:59:40.853190
 description: "PATCH Tenants"
 enabled: true
 entry_point: run.py
@@ -18,6 +18,14 @@ parameters:
     default: True
     immutable: true
     type: boolean
+  name:
+    required: False
+    type: "string"
+    description: "Name"
+  slug:
+    required: False
+    type: "string"
+    description: "Slug"
   group:
     required: False
     type: "integer"
@@ -26,26 +34,18 @@ parameters:
     required: False
     type: "string"
     description: "Description"
-  tags:
-    required: False
-    type: "array"
-    description: "Array of tag strings"
   comments:
     required: False
     type: "string"
     description: "Comments"
-  slug:
+  tags:
     required: False
-    type: "string"
-    description: "Slug"
+    type: "array"
+    description: "Array of tag strings"
   custom_fields:
     required: False
     type: "object"
     description: "Custom fields"
-  name:
-    required: False
-    type: "string"
-    description: "Name"
   id:
     required: True
     type: "integer"

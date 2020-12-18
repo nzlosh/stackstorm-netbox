@@ -1,13 +1,13 @@
 # This action was auto generated from the NetBox API Swagger Spec
-# NetBox API version: 2.4
-# Date: 2018-11-08 00:21:23.125932
-description: "List rack units (by rack)"
+# NetBox API version: 2.8
+# Date: 2020-12-18 19:59:40.822313
+description: "Rack elevation representing the list of rack units. Also supports rendering the elevation as an SVG."
 enabled: true
 entry_point: run.py
-name: get.dcim.racks.units
+name: get.dcim.racks.elevation
 parameters:
   endpoint_uri:
-    default: "/dcim/racks/{{ id }}/units/"
+    default: "/dcim/racks/{{ id }}/elevation/"
     immutable: true
     type: string
   http_verb:

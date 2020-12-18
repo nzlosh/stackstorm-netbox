@@ -1,13 +1,13 @@
 # This action was auto generated from the NetBox API Swagger Spec
-# NetBox API version: 2.4
-# Date: 2018-11-08 00:21:23.125118
-description: "POST Topology Maps"
+# NetBox API version: 2.8
+# Date: 2020-12-18 19:59:40.798572
+description: "POST Front Port Templates"
 enabled: true
 entry_point: run.py
-name: post.extras.topology_maps
+name: post.dcim.front_port_templates
 parameters:
   endpoint_uri:
-    default: "/extras/topology-maps/"
+    default: "/dcim/front-port-templates/"
     immutable: true
     type: string
   http_verb:
@@ -18,24 +18,24 @@ parameters:
     default: True
     immutable: true
     type: boolean
-  description:
-    required: False
-    type: "string"
-    description: "Description"
-  site:
+  device_type:
     required: True
     type: "integer"
-    description: "Site"
-  device_patterns:
-    required: True
-    type: "string"
-    description: "Device patterns"
-  slug:
-    required: True
-    type: "string"
-    description: "Slug"
+    description: "Device type"
   name:
     required: True
     type: "string"
     description: "Name"
+  type:
+    required: True
+    type: "string"
+    description: "Type"
+  rear_port:
+    required: True
+    type: "integer"
+    description: "Rear port"
+  rear_port_position:
+    required: False
+    type: "integer"
+    description: "Rear port position"
 runner_type: python-script
